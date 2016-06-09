@@ -1,0 +1,42 @@
+---
+pkginstall:
+  - mplayer
+  - nautilus-dropbox
+  - git
+  - ipython
+  - thunderbird
+  - vim
+  - geany
+  - icedtea-web
+  - java-openjdk
+  - transmission-qt
+  - gparted
+  - stellarium
+  - bleachbit
+  - flash-plugin
+  - nspluginwrapper
+  - alsa-plugins-pulseaudio
+  - libcurl
+  - spotify-client
+  - steam
+  - gstreamer-plugins-bad
+  - gstreamer-plugins-bad-free-extras
+  - gstreamer-plugins-bad-nonfree
+  - gstreamer-plugins-ugly
+  - gstreamer-ffmpeg
+  - gstreamer1-libav
+  - gstreamer1-plugins-bad-free-extras
+  - gstreamer1-plugins-bad-freeworld
+  - gstreamer1-plugins-base-tools
+  - gstreamer1-plugins-good-extras
+  - gstreamer1-plugins-ugly
+  - gstreamer1-plugins-bad-free
+  - gstreamer1-plugins-good
+  - gstreamer1-plugins-base
+  - ffmpeg
+
+pkgremove:
+  - evolution
+  - gnome-terminal
+  - empathy
+  - rhythmbox

@@ -1,0 +1,44 @@
+#playbook that installs every favourite pkg of mine on fresh install of
+#fedora distro
+#
+#USAGE:
+#
+#
+---
+- hosts: localhost
+
+  vars_files:
+    - pkg_list.yml
+
+  tasks:
+
+  - name: Activate RMPFusion repo
+    command: rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+
+  - name: Configure steam installation
+    command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-steam.repo
+
+  - name: Configure spotify installation
+    command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+
+  - name: Configure dropbox installation
+    copy:
+      src: ./dropbox.repo
+      dest: /etc/yum.repos.d/dropbox.repo
+
+  - name: Install pkgs
+    dnf:
+      name: '{{ item }}'
+      state: present
+    with_items: "{{ pkginstall }}"
+
+  - name: Remove unwanted pkgs
+    dnf:
+      name: '{{ item }}'
+      state: absent
+    with_items: "{{ pkgremove }}"
+
+  - name: Upgrade all pkgs
+    dnf:
+      name: *
+      state: latest
