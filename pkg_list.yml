@@ -35,6 +35,7 @@ pkginstall:
   - gstreamer1-plugins-base
   - ffmpeg
   - playonlinux
+  - texlive-scheme-full
 
 pkgremove:
   - evolution
