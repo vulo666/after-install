@@ -1,14 +1,19 @@
 #playbook that installs every favourite pkg of mine on fresh install of
 #fedora distro
+#Needs elevated privileges!
 #
 #USAGE:
-#
+#ansible-playbook after_install.yml --ask-become-pass
 #
 ---
 - hosts: localhost
 
   vars_files:
     - pkg_list.yml
+
+  become: yes
+  become_user: root
+  become_method: su
 
   tasks:
 
