@@ -17,6 +17,14 @@
 
   tasks:
 
+  - name: Install dependancy to run playbook
+    raw: yum -y install python-simplejson
+
+  - name: Upgrade all pkgs
+     dnf:
+       name: *
+       state: latest
+
   - name: Activate RMPFusion repo
     command: rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
 
