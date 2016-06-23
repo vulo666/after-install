@@ -35,9 +35,11 @@
     command: dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
 
   - name: Configure dropbox installation
-    copy:
-      src: ./dropbox.repo
-      dest: /etc/yum.repos.d/dropbox.repo
+    yum_repository:
+      name: dropbox
+      description: Dropbox repo
+      baseurl: http://linux.dropbox.com/fedora/$releasever/
+      gpgkey: http://linux.dropbox.com/fedora/rpm-public-key.asc
 
   - name: Install pkgs
     dnf:
